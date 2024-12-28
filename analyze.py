@@ -289,9 +289,10 @@ def main(
         else:
             pprint("[red]Cache miss: fetching data from Gradescope[/red]")
 
+        driver = GradescopeSession(cookie_file=cookie_file)
+
         status = Status(f"Visiting [blue]{regrade_url}[/blue]", console=CONSOLE)
         status.start()
-        driver = GradescopeSession(cookie_file=cookie_file)
         regrade_url_response = driver.session.get(regrade_url)
         assert regrade_url_response.ok
         content = regrade_url_response.content
