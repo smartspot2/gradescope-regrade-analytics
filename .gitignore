@@ -2,3 +2,4 @@
 .mise.toml
 
 __pycache__
+.venv
